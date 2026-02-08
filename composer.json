@@ -1,0 +1,17 @@
+{
+    "name": "wesley/autenticacao",
+    "autoload": {
+        "psr-4": {
+            "Wesley\\Autenticacao\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Wesley-Santos-Front",
+            "email": "wesleytksantos321@gmail.com"
+        }
+    ],
+    "require": {
+        "dompdf/dompdf": "^3.1"
+    }
+}
