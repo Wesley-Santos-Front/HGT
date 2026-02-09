@@ -29,7 +29,7 @@ if($usuarioData){
         <a href="<?= $BASE_URL ?>cadastro.php">Cadastrar conta</a>
         </div>
         <div>
-        <a href="">Esqueceu a senha?</a>
+        <a href="<?= $BASE_URL ?>recuperar_senha.php">Esqueceu a senha?</a>
         </div>
       </ul>
     </div>

@@ -33,9 +33,6 @@ if($usuarioData->perfil == ""){
       <ul>
         <div>
         <a href="<?= $BASE_URL ?>editPassword.php">Alterar Senha?</a>
-        <br>
-        <a href="<?= $BASE_URL ?>logout.php"><-- Sair da conta</a>
-
         </div>
       </ul>
     </div>

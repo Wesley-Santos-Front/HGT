@@ -126,7 +126,7 @@ $data = date("d/m/Y");
 ?>
     <li class="loginAuth">
       <span><?= $usuarioData->nome ?></span>
-      <a href="<?= $BASE_URL ?>editProfile.php"><div id="imagem1" style="background-image:url(<?= $BASE_URL ?>img/users/<?= $usuarioData->perfil ?>);">
+      <a href="<?= $BASE_URL ?>perfil.php"><div id="imagem1" style="background-image:url(<?= $BASE_URL ?>img/users/<?= $usuarioData->perfil ?>);">
   </div></a>
     </li>
     <?php else: ?>

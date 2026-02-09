@@ -473,7 +473,6 @@ img {
 }
 
 .hiperl1 a {
-  display: inline-block;
   text-decoration: none;
   font-size: 14px;
   color: rgb(0, 0, 0, 0.5);
@@ -580,6 +579,9 @@ img {
   background-size: cover; 
   background-repeat: no-repeat;
   background-position: center;
+}
+#input1 {
+  font-size: 12px;
 }
 
 .editar {
@@ -834,6 +836,126 @@ img {
   cursor:pointer;
 }
 
+/*pagina nova senha*/
+.editar2 input {
+  display: block;
+  padding: 15px 20px;
+  width: 100%;
+  max-width: 370px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  margin: 12px auto 0;
+}
+.editar2 input:nth-child(1) {
+margin-top: 20px;
+}
+
+.editar2 input:nth-child(4){
+  padding: 12px 40px;
+  font-size: 18px;
+  color: white;
+  font-weight: 300;
+  background-color: #508BC9;
+  border: none;
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+  margin-top: 35px;
+}
+
+/*pagina perfil*/
+.bloc {
+  display: block;
+}
+.editar3 {
+  padding: 40px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:center;
+  border: none;
+  width: 32%;
+  margin-top: 5px; 
+  margin-left: 30px;
+}
+.editar3 h2{
+ margin-top: 45px;
+}
+.imagem2 {
+  display: block; 
+  width: 100px; 
+  height: 100px;
+  border: 2px solid rgba(0, 0, 0, 0.2); 
+  border-radius: 50%; 
+  margin: 10px auto 0; 
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.editar4 {
+  padding: 40px;
+  width: 85%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  margin:0 auto;
+  border-radius: 10px;
+  background-color: #F3F4F6;
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.15);
+}
+.editar4 div {
+  display: table;
+}
+.editar4 input {
+  color: #5f5f5f;
+  display: block;
+  padding: 8px;
+  width: 100%;
+  max-width: 270px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  margin: 12px auto 0;
+  float: left;
+}
+#email3 {
+  text-align: center;
+}
+#data2 {
+  text-align: center;
+}
+.editar4 label{
+  color: rgb(0, 0, 0, 0.7);
+  float: left;
+  margin-top: 25px;
+  font-weight: 600;
+}
+.hiperl4 {
+  display: inline-block;
+  width: 100%;
+  margin: 30px auto 0;
+}
+
+.hiperl4 a {
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  color: rgb(0, 0, 0, 0.5);
+  transition: all 0.3s ease-out;
+  margin: 5px 0;
+}
+
+.hiperl4 a:hover{
+  color: rgb(0, 0, 0, 0.6);
+  border-bottom: 1px solid rgb(0, 0, 0, 0.6);
+}
+
+
+
 /* ==========================================
    RESPONSIVO - TABLET (até 1024px)
    ========================================== */
@@ -848,6 +970,15 @@ img {
   
   .formula {
     width: 45%;
+  }
+  .editar3 {
+    width: 90%; /* Aumenta a largura do cabeçalho do perfil */
+    margin: 20px auto; /* Centraliza */
+  }
+
+  .editar4 {
+    width: 95%; /* O formulário ocupa quase toda a largura */
+    padding: 20px;
   }
 }
 
@@ -883,6 +1014,13 @@ img {
   .loginAuth {
     gap: 10px;
   }
+  .error {
+  top: 70px;
+}
+
+.success{
+  top: 70px;
+}
   
   /* Container - empilhar verticalmente */
   .container {
@@ -973,12 +1111,44 @@ img {
   .regDat input, .regDat select {
     max-width: 100%;
   }
+  .editar3 {
+    width: 100%;
+    margin-left: 0; /* Remove a margem lateral que você tinha colocado */
+  }
+
+  .editar4 {
+    flex-direction: column; /* Empilha os campos verticalmente */
+    align-items: center;
+    width: 95%;
+  }
+
+  .editar4 div {
+    display: block; /* Muda de table para block para fluir melhor */
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .editar4 input {
+    max-width: 100%; /* Input ocupa toda a largura disponível */
+    float: none;     /* Remove o float para evitar quebras de layout */
+  }
+
+  .editar4 label {
+    float: none;     /* Label fica acima do input */
+    margin-top: 10px;
+    display: block;
+  }
 }
 
 /* ==========================================
    RESPONSIVO - MOBILE PEQUENO (até 480px)
    ========================================== */
 @media screen and (max-width: 480px) {
+  #input1 {
+    position:relative;
+    left: 10px;
+    font-size: 12px;
+}
    .hiperl1 a {
   margin: 5px 0;
 }
@@ -1012,6 +1182,7 @@ img {
     .inputs1 {
   display: block;
   width: 100%;
+  margin-top: -60px;
 
 }
  .inputs1 input{
@@ -1060,8 +1231,8 @@ img {
   cursor: pointer;
   margin-left: 165px;
 }
-#input1 {
- margin-left: -15px;
+.editar input:last-child{
+  margin-top: 35px;
 }
   .logo1 span {
     font-size: 16px;
@@ -1100,10 +1271,44 @@ img {
   }
   
   /* Editar perfil */
-  #imagem {
-    width: 80px;
-    height: 80px;
+  .bloc {
+    padding: 0 20px 20px 20px;
   }
+  .imagem2 {
+    width: 85px;
+    height: 85px;
+  }
+  .editar3{
+    width: 100%;
+    margin-left: -20px;
+  }
+  
+  .editar3 h2 {
+    font-size: 20px;
+    margin-top: 40px;
+    margin-left: 10px;
+  }
+
+  .editar4 {
+    padding: 15px;
+  }
+
+  .editar4 input {
+    font-size: 14px; /* Diminui um pouco a fonte para caber melhor */
+  }
+  .hiperl4 {
+  display: inline-block;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hiperl4 a {
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  color: rgb(0, 0, 0, 0.5);
+  transition: all 0.3s ease-out;
+}
 }
 
 /* ==========================================
