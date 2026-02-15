@@ -19,9 +19,21 @@ $email2= filter_input(INPUT_POST, "email3");
   //criar um novo objeto de usuario
 $usuario = new Usuario();
 
+// 2. Formata os dados (Verifica se não são nulos antes de formatar para evitar erro)
+$nome5 = "";
+$sobrenome5 = "";
+
+if($nome2) {
+    $nome5 = mb_convert_case(mb_strtolower(trim($nome2)), MB_CASE_TITLE, "UTF-8");
+}
+if($sobrenome2) {
+    $sobrenome5 = mb_convert_case(mb_strtolower(trim($sobrenome2)), MB_CASE_TITLE, "UTF-8");
+}
+
+
 //preencher os dados do usuario
-$usuarioData->nome = $nome2;
-$usuarioData->sobrenome = $sobrenome2;
+$usuarioData->nome = $nome5;
+$usuarioData->sobrenome = $sobrenome5;
 $usuarioData->dataNasc = $dataNasc2;
 $usuarioData->email = $email2;
 
@@ -46,7 +58,8 @@ if(isset($_FILES["image"]) && !empty($_FILES["image"]["tmp_name"])) {
     }
 
     $imageName = $usuario->imageGenerateName();
-    imagejpeg($imageFile, "./img/users/" . $imageName, 100);
+    imagejpeg($imageFile, "./img/users/" . $imageName, 80);
+    imagedestroy($imageFile); // Libera a memória RAM do servidor imediatamente
 
     $usuarioData->perfil = $imageName;
 

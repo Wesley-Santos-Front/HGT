@@ -31,7 +31,7 @@ class UsuarioDAO implements usuarioDAOInter{
 
   public function create(Usuario $usuario, $authUser = false){
 
-    $stmt = $this->conn->prepare("INSERT INTO autentic.usuarios(nome, sobrenome, dataNasc, email, senha, token) 
+    $stmt = $this->conn->prepare("INSERT INTO usuarios(nome, sobrenome, dataNasc, email, senha, token) 
     VALUES (:nome, :sobrenome, :dataNasc, :email, :senha, :token)");
 
     $stmt->bindParam(":nome", $usuario->nome);
@@ -54,7 +54,7 @@ class UsuarioDAO implements usuarioDAOInter{
 
 
   public function update(Usuario $usuario, $redirect = true){
-    $stmt=$this->conn->prepare("UPDATE autentic.usuarios SET 
+    $stmt=$this->conn->prepare("UPDATE usuarios SET 
     nome = :nome,
     sobrenome = :sobrenome,
     dataNasc = :dataNasc,
@@ -86,7 +86,7 @@ class UsuarioDAO implements usuarioDAOInter{
 
   public function findByToken($token){
      if($token != "") {
-      $stmt = $this->conn->prepare("SELECT * FROM autentic.usuarios WHERE token = :token");
+      $stmt = $this->conn->prepare("SELECT * FROM usuarios WHERE token = :token");
       $stmt->bindParam(":token", $token);
       $stmt->execute();
 
@@ -179,7 +179,7 @@ class UsuarioDAO implements usuarioDAOInter{
 
   public function findByEmail($email){
     if($email != "") {
-      $stmt = $this->conn->prepare("SELECT * FROM autentic.usuarios WHERE email = :email");
+      $stmt = $this->conn->prepare("SELECT * FROM usuarios WHERE email = :email");
       $stmt->bindParam(":email", $email);
       $stmt->execute();
        if($stmt->rowCount() > 0){
@@ -205,7 +205,7 @@ class UsuarioDAO implements usuarioDAOInter{
 
 
   public function changePassword(Usuario $usuario){
-    $stmt = $this->conn->prepare("UPDATE autentic.usuarios 
+    $stmt = $this->conn->prepare("UPDATE usuarios 
     SET senha = :senha
     WHERE email = :email");
 

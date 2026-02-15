@@ -1110,6 +1110,7 @@ margin-top: 20px;
   
   .regDat input, .regDat select {
     max-width: 100%;
+      text-align: center;
   }
   .editar3 {
     width: 100%;
@@ -1149,6 +1150,14 @@ margin-top: 20px;
     left: 10px;
     font-size: 12px;
 }
+     .logo1 img {
+    width: 55px;
+    height: 55px;
+  }
+  
+  .logo1 span {
+    font-size: 22px;
+  }
    .hiperl1 a {
   margin: 5px 0;
 }

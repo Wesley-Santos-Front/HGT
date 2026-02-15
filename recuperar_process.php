@@ -21,34 +21,49 @@ if($email4){
         $usuario->token = $token;
         $usuarioDao->update($usuario, false);
 
-        // Ajuste o link para apontar para o seu localhost
-        $link = "http://localhost/autenticacao/nova_senha.php?token=" . $token;
+        // Ajuste do link com a URL Base
+        $link = $BASE_URL . "nova_senha.php?token=" . $token;
 
-        // 1. PRIMEIRO: Instancia a classe
         $mail = new PHPMailer(true);
 
         try {
-            // ... (suas configurações de $mail permanecem iguais)
+            // Configurações do Servidor
+            $mail->isSMTP();                                            
+            $mail->Host       = 'smtp.gmail.com';                     
+            $mail->SMTPAuth   = true;                                   
+            
+            // AQUI: Deve ser o SEU e-mail do Gmail, não o do formulário!
+            $mail->Username   = 'wesleytksantos321@gmail.com'; 
+            $mail->Password   = 'amfgtbnfakhtkiwu'; 
+            
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         
+            $mail->Port       = 587;                                    
+
+            // Destinatários
+            $mail->setFrom('wesleytksantos321@gmail.com', 'Sistema HGT');
+            $mail->addAddress($email4);     
+
+            // Conteúdo do E-mail
+            $mail->isHTML(true);                                  
+            $mail->Subject = 'Recuperacao de Senha';
+            $mail->Body    = "Ola! Clique no link para resetar sua senha: <br><a href='$link'>$link</a>";
 
             $mail->send();
-            $message->setMessage("Verifique seu e-mail para concluir a troca!", "success", "back");
+            $message->setMessage("Verifique seu e-mail!", "success", "back");
 
         } catch (Exception $e) {
-            // PLANO B: Se o e-mail falhar, mostra o link na tela para você testar
-            echo "<div style='background:#fff3cd; color:#856404; padding:20px; border:1px solid #ffeeba; border-radius:5px; font-family:sans-serif; margin: 20px;'>";
-            echo "<h3>Aviso: O envio de e-mail falhou</h3>";
-            echo "Provavelmente um bloqueio de rede ou firewall local.<br><br>";
-            echo "<strong>Clique abaixo para simular o recebimento do e-mail:</strong><br><br>";
-            echo "<a href='$link' style='background:#28a745; color:white; padding:10px 20px; text-decoration:none; border-radius:5px; font-weight:bold;'>RESETAR MINHA SENHA AGORA</a>";
-            echo "<br><br><small>Erro técnico retornado: {$mail->ErrorInfo}</small>";
+            echo "<div style='background:#fff3cd; padding:20px; border:1px solid #ffeeba; font-family:sans-serif;'>";
+            echo "<h3>Aviso: Envio de e-mail bloqueado pela hospedagem</h3>";
+            echo "<strong>Link de simulação:</strong><br><br>";
+            echo "<a href='$link' style='background:#28a745; color:white; padding:10px; text-decoration:none;'>RESETAR SENHA AGORA</a>";
+            echo "<br><br>Erro tecnico: {$mail->ErrorInfo}";
             echo "</div>";
-            exit; // Para a execução aqui para você clicar no link
+            exit;
         }
 
     } else {
-        $message->setMessage("E-mail não encontrado!", "error", "back");
+        $message->setMessage("E-mail nao encontrado!", "error", "back");
     }
 } else {
-    $message->setMessage("É necessário preencher o campo E-mail!", "error", "back");
+    $message->setMessage("Preencha o e-mail!", "error", "back");
 }
-?>

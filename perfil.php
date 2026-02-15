@@ -17,7 +17,7 @@ if($usuarioData->perfil == ""){
   <div class="editar3">
   <div class="imagem2" id="imagem" style="background-image:url(<?= $BASE_URL ?>img/users/<?= $usuarioData->perfil ?>);"></div>
   <div>
-  <h2><?= $usuarioData->nome ?>  <?= $usuarioData->sobrenome ?></h2>
+  <h2><?= ucwords(strtolower($usuarioData->nome)) ?>  <?= ucwords(strtolower($usuarioData->sobrenome)) ?></h2>
   </div>  
 </div>
   <div class="editar4">

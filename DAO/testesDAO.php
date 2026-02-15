@@ -39,7 +39,7 @@ class TestesDAO implements TesteDAOInterface{
     //data atual
     $dataAt = date("Y-m-d");
 
-    $stmt = $this->conn->prepare("SELECT madrugada, antesCafe, depoisCafe, antesAlmoco, depoisAlmoco, antesJantar, depoisJantar FROM autentic.teste WHERE usuario_email = :usuario_email 
+    $stmt = $this->conn->prepare("SELECT madrugada, antesCafe, depoisCafe, antesAlmoco, depoisAlmoco, antesJantar, depoisJantar FROM teste WHERE usuario_email = :usuario_email 
     AND DATE(data_teste) = :data_teste ");
     $stmt->bindParam(":data_teste", $dataAt);
     $stmt->bindParam(":usuario_email", $email_usuario);
@@ -57,7 +57,7 @@ class TestesDAO implements TesteDAOInterface{
     $dataInic = date("Y-m-d", strtotime("-20 days"));
     $dataFinali = date("Y-m-d");
 
-    $stmt = $this->conn->prepare("SELECT madrugada, data_teste, antesCafe, depoisCafe, antesAlmoco, depoisAlmoco, antesJantar, depoisJantar FROM autentic.teste 
+    $stmt = $this->conn->prepare("SELECT madrugada, data_teste, antesCafe, depoisCafe, antesAlmoco, depoisAlmoco, antesJantar, depoisJantar FROM teste 
     WHERE usuario_email = :usuario_email 
     AND data_teste >= :dataInic 
     AND data_teste <= :dataFinali 
@@ -82,7 +82,7 @@ class TestesDAO implements TesteDAOInterface{
     //data atual
     $dataAtual = date("Y-m-d");
 
-    $stmt = $this->conn->prepare("SELECT madrugada, antesCafe, depoisCafe, antesAlmoco, depoisAlmoco, antesJantar, depoisJantar FROM autentic.teste WHERE usuario_email = :usuario_email 
+    $stmt = $this->conn->prepare("SELECT madrugada, antesCafe, depoisCafe, antesAlmoco, depoisAlmoco, antesJantar, depoisJantar FROM teste WHERE usuario_email = :usuario_email 
     AND DATE(data_teste) = :data_teste ");
     $stmt->bindParam(":data_teste", $dataAtual);
     $stmt->bindParam(":usuario_email", $email_usuario);
@@ -106,7 +106,7 @@ class TestesDAO implements TesteDAOInterface{
     $colunas = ["madrugada", "antesCafe", "depoisCafe", "antesAlmoco", "depoisAlmoco", "antesJantar", "depoisJantar"];
     $total = 0;
 
-    $stmt = $this->conn->prepare("SELECT * FROM autentic.teste
+    $stmt = $this->conn->prepare("SELECT * FROM teste
     WHERE usuario_email = :usuario_email 
     AND DATE(data_teste) = :data_teste");
 
@@ -141,7 +141,7 @@ class TestesDAO implements TesteDAOInterface{
     $somaValor = 0;
     $totalTeste = 0;
 
-    $stmt = $this->conn->prepare("SELECT * FROM autentic.teste
+    $stmt = $this->conn->prepare("SELECT * FROM teste
     WHERE usuario_email = :usuario_email
     AND DATE(data_teste) BETWEEN :dataIni AND :dataFinal");
 
@@ -183,7 +183,7 @@ class TestesDAO implements TesteDAOInterface{
     $somaValores = 0;
     $totalTestes = 0;
 
-    $stmt = $this->conn->prepare("SELECT * FROM autentic.teste
+    $stmt = $this->conn->prepare("SELECT * FROM teste
     WHERE usuario_email = :usuario_email
     AND DATE(data_teste) BETWEEN :data_inicio AND :data_final");
 
@@ -217,7 +217,7 @@ class TestesDAO implements TesteDAOInterface{
     date_default_timezone_set('America/Sao_Paulo');
 
     if($data_teste != "") {
-      $stmt = $this->conn->prepare("SELECT * FROM autentic.teste WHERE data_teste = :data_teste");
+      $stmt = $this->conn->prepare("SELECT * FROM teste WHERE data_teste = :data_teste");
       $stmt->bindParam(":data_teste", $data_teste);
       $stmt->execute();
        if($stmt->rowCount() > 0){
@@ -237,7 +237,7 @@ class TestesDAO implements TesteDAOInterface{
 
   public function findByEmailAndDate($email_usuario, $data_teste){
      if($email_usuario && $data_teste != "") {
-      $stmt = $this->conn->prepare("SELECT * FROM autentic.teste WHERE usuario_email = :usuario_email 
+      $stmt = $this->conn->prepare("SELECT * FROM teste WHERE usuario_email = :usuario_email 
       AND data_teste = :data_teste");
       $stmt->bindParam(":usuario_email",$email_usuario);
       $stmt->bindParam(":data_teste",$data_teste);
@@ -257,7 +257,7 @@ class TestesDAO implements TesteDAOInterface{
 
 
   public function create(Testes $testes){
-    $stmt = $this->conn->prepare("INSERT INTO autentic.teste (usuario_email, data_teste, madrugada, antesCafe, depoisCafe, antesAlmoco, depoisAlmoco, antesJantar, depoisJantar) 
+    $stmt = $this->conn->prepare("INSERT INTO teste (usuario_email, data_teste, madrugada, antesCafe, depoisCafe, antesAlmoco, depoisAlmoco, antesJantar, depoisJantar) 
     VALUES (:usuario_email, :data_teste, :madrugada, :antesCafe, :depoisCafe, :antesAlmoco, :depoisAlmoco, :antesJantar, :depoisJantar)");
 
     $stmt->bindParam(":usuario_email", $testes->email_usuario);
@@ -274,7 +274,7 @@ class TestesDAO implements TesteDAOInterface{
 
 
   public function update(Testes $testes){
-     $stmt = $this->conn->prepare("UPDATE autentic.teste SET
+     $stmt = $this->conn->prepare("UPDATE teste SET
      madrugada = COALESCE(madrugada, :madrugada),
      antesCafe = COALESCE(antesCafe, :antesCafe),
      depoisCafe = COALESCE(depoisCafe, :depoisCafe),
@@ -298,7 +298,7 @@ class TestesDAO implements TesteDAOInterface{
 
   public function getLatestTest($email_usuario){
     // Ordenamos pela data de forma decrescente e limitamos a 1 resultado
-    $stmt = $this->conn->prepare("SELECT * FROM autentic.teste
+    $stmt = $this->conn->prepare("SELECT * FROM teste
     WHERE usuario_email = :usuario_email
     ORDER BY id DESC LIMIT 1");
 

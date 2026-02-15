@@ -10,6 +10,8 @@ require_once ("DAO/testesDAO.php");
 ini_set('display_errors', 0);
 error_reporting(0);
 
+
+
 //instanciando classe usuarioDAO
 $usuarioDao = new UsuarioDAO($conn, $BASE_URL);
 $testesDao = new TestesDAO($conn, $BASE_URL);
@@ -65,7 +67,7 @@ $data = date("d/m/Y");
 
   <!--CSS-->
   <link rel="stylesheet" href="./css/style.css">
-  <title>autenticação</title>
+  <title>Teste HGT</title>
 </head>
 <body>
 
@@ -125,7 +127,7 @@ $data = date("d/m/Y");
 }
 ?>
     <li class="loginAuth">
-      <span><?= $usuarioData->nome ?></span>
+      <span><?= ucwords(strtolower($usuarioData->nome)) ?></span>
       <a href="<?= $BASE_URL ?>perfil.php"><div id="imagem1" style="background-image:url(<?= $BASE_URL ?>img/users/<?= $usuarioData->perfil ?>);">
   </div></a>
     </li>
