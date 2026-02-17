@@ -37,14 +37,14 @@ if($dataTeste && $momento && $valorTeste) {
             
             // Caso NÃO exista: CREATE
             $testesDao->create($testes);
-            $message->setMessage("Teste cadastrado com sucesso!", "success", "homeLogado.php");
+            $message->setMessage("Teste cadastrado com sucesso!", "success", "homeLogado");
 
         } else {
 
             // Caso JÁ exista: UPDATE
             // Agora o objeto $testes já tem o email, a data e o valor no momento certo
             $testesDao->update($testes);
-            $message->setMessage("Teste cadastrado com sucesso!", "success", "homeLogado.php");
+            $message->setMessage("Teste cadastrado com sucesso!", "success", "homeLogado");
         }
     } else {
         $message->setMessage("Erro!", "error", "back");

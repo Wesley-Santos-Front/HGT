@@ -4,7 +4,7 @@ require_once ("templates/header.php");
 
 //impede de se o usuario voltar a pagina logado, vá para a pagina home
 if($usuarioData){
-  header("Location: homeLogado.php");
+  header("Location: homeLogado");
   exit;
 }
 ?>
@@ -16,7 +16,7 @@ if($usuarioData){
 <p>Acompanhe seus níveis de glicose, de forma simples e segura</p>
 </div>
 <div class="formula1">
-  <form action="<?= $BASE_URL ?>cadastro_process.php" method="post" autocomplete="off">
+  <form action="<?= $BASE_URL ?>cadastro_process" method="post" autocomplete="off">
     <div class="inputs2">
     <input type="text" name="nome" id="nome" autocomplete="new-text" placeholder="Digite seu nome..."/>
     <input type="text" name="sobrenome" id="sobrenome" autocomplete="new-text" placeholder="Digite seu sobrenome..."/>
@@ -31,7 +31,7 @@ if($usuarioData){
     <div class="hiperl2">
       <ul>
         <div>
-        <a href="<?= $BASE_URL ?>login.php">Login</a>
+        <a href="<?= $BASE_URL ?>login">Login</a>
         </div>
       </ul>
     </div>

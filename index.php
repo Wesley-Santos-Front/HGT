@@ -1,28 +1,32 @@
-<!--header-->
 <?php
-require_once ("templates/header.php");
+require_once("globals.php");
+require_once("db.php");
+require_once("models/message.php");
+// ... outros DAOs ...
 
-//impede de se o usuario voltar a pagina logado, vá para a pagina home
-if($usuarioData){
-  header("Location: homeLogado.php");
-  exit;
+$url = filter_input(INPUT_GET, 'url');
+$rota = $url ? explode('/', $url)[0] : 'home';
+
+// 1. Lista de arquivos que são apenas PROCESSAMENTO (sem HTML)
+$acoes = ['login_process', 'cadastro_process', 'logout', 'edit_process', 'editPassword_process', 'allTests', 'novaSenha_process', 'recuperar_process', 'testes_process', 'gerar_pdf'];
+
+if (in_array($rota, $acoes)) {
+    // Se for uma ação, carrega o arquivo direto e PARA a execução
+    require_once($rota . ".php");
+    exit; 
 }
-?>
 
-<!--pagina home-->
-<section class="container">
-<div class="convite">
-<h1>Monitore sua saúde</h1>
-<p>Acompanhe seus níveis de glicose, e mantenha sua saude em dia</p>
-<a href="<?= $BASE_URL ?>login.php"><button>Começar</button></a>
-</div>
-<div class="imgTeste">
-  <img src="<?= $BASE_URL ?>img/imgTeste.png" alt="teste">
-</div>
-</section>
+// 2. Se não for ação, é uma PÁGINA (Leva Header e Footer)
+$paginas_permitidas = ['home', 'perfil', 'cadastro', 'login', 'homeLogado', 'allTests', 'editProfile', 'nova_senha', 'editPassword', 'recuperar_senha'];
 
-<!--footer-->
-<?php
-require_once ("templates/footer.php");
-?>
+require_once("templates/header.php");
+
+if (in_array($rota, $paginas_permitidas)) {
+    require_once($rota . ".php");
+} else {
+    require_once("404.php");
+}
+
+require_once("templates/footer.php");
+
   

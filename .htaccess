@@ -1,0 +1,15 @@
+# Desativa a interferência do Apache com nomes de arquivos
+Options -MultiViews -Indexes
+
+RewriteEngine On
+
+# IMPORTANTE: Se sua pasta se chama AUTENTICACAO, mude abaixo. 
+# Se estiver na raiz, use apenas /
+RewriteBase /AUTENTICACAO/
+
+# Não redireciona arquivos reais (imagens, css)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Manda tudo para o index.php capturando a URL
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]

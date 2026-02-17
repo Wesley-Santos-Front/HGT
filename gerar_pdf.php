@@ -69,7 +69,7 @@ try {
   $dompdf->render();
   // 4. Saída para o navegador (Download automático)
   $dompdf->stream("relatorio_glicemia.pdf", ["Attachment" => true]);
-  $message->setMessage("download efetuado com sucesso", "success", "allTests.php");
+  $message->setMessage("download efetuado com sucesso", "success", "allTests");
 }catch (Exception $e) {
     // 3. Caso ocorra um erro inesperado no Dompdf
     $message->setMessage("Erro ao gerar PDF: " . $e->getMessage(), "error", "back");

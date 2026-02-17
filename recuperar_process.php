@@ -22,7 +22,7 @@ if($email4){
         $usuarioDao->update($usuario, false);
 
         // Ajuste do link com a URL Base
-        $link = $BASE_URL . "nova_senha.php?token=" . $token;
+        $link = $BASE_URL . "nova_senha?token=" . $token;
 
         $mail = new PHPMailer(true);
 

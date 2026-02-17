@@ -78,7 +78,7 @@ $mediaMes = $testeDao->getMesTest($usuarioData->email);
 <div class="tabela">
   <div class="title1">
   <h3>Testes Hoje</h3>
-  <a href="<?= $BASE_URL ?>allTests.php">Ver todos</a>
+  <a href="<?= $BASE_URL ?>allTests">Ver todos</a>
   </div>
   <table>
     <thead>

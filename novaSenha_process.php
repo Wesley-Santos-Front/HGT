@@ -31,9 +31,9 @@ if($token && $editPassw && $confPassw){
             // 5. Salvar no banco
             $usuarioDao->changePassword($usuario);
             
-            $message->setMessage("Senha alterada com sucesso!", "success", "login.php");
+            $message->setMessage("Senha alterada com sucesso!", "success", "login");
         } else {
-            $message->setMessage("Usuário inválido ou link expirado.", "error", "index.php");
+            $message->setMessage("Usuário inválido ou link expirado.", "error", "home");
         }
 
     } else {

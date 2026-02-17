@@ -48,7 +48,7 @@ if($usuarioData->perfil == ""){
     <div class="hiperl4">
     <ul>
       <div>
-      <a href="<?= $BASE_URL ?>editProfile.php">Editar perfil</a>
+      <a href="<?= $BASE_URL ?>editProfile">Editar perfil</a>
       </div>
        <div>
       <a href="<?= $BASE_URL ?>logout.php"><- Sair da conta</a>

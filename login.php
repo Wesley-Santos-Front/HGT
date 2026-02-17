@@ -16,7 +16,7 @@ if($usuarioData){
 <p>Acompanhe seus níveis de glicose, de forma simples e segura</p>
 </div>
 <div class="formula">
-  <form action="<?= $BASE_URL ?>login_process.php" method="post" autocomplete="off">
+  <form action="<?= $BASE_URL ?>login_process" method="post" autocomplete="off">
     <div class="inputs1">
     <input type="email" name="email1" id="email1" autocomplete="new-email" placeholder="Digite seu E-mail...">
     <input type="password" name="senha1" id="senha1" autocomplete="new-password" placeholder="Digite sua senha...">
@@ -26,10 +26,10 @@ if($usuarioData){
     <div class="hiperl1">
       <ul>
         <div>
-        <a href="<?= $BASE_URL ?>cadastro.php">Cadastrar conta</a>
+        <a href="<?= $BASE_URL ?>cadastro">Cadastrar conta</a>
         </div>
         <div>
-        <a href="<?= $BASE_URL ?>recuperar_senha.php">Esqueceu a senha?</a>
+        <a href="<?= $BASE_URL ?>recuperar_senha">Esqueceu a senha?</a>
         </div>
       </ul>
     </div>

@@ -72,7 +72,7 @@ $data = date("d/m/Y");
 <body>
 
  <!--modal-->
-  <form action="<?= $BASE_URL ?>testes_process.php" method="post">
+  <form action="<?= $BASE_URL ?>testes_process" method="post">
   <div class="modalHead" id="modal">
   <div class="modal1">
     <div class="cabecModal">
@@ -111,11 +111,11 @@ $data = date("d/m/Y");
   <header class="head">
   <?php if($usuarioData): ?>
     <li class="logo1">
-      <a href="<?= $BASE_URL ?>homeLogado.php"><img src="<?= $BASE_URL ?>img/teste-removebg-preview.png" alt="logo"/> <span>TESTE HGT</span></a>
+      <a href="<?= $BASE_URL ?>homeLogado"><img src="<?= $BASE_URL ?>img/teste-removebg-preview.png" alt="logo"/> <span>TESTE HGT</span></a>
     </li>
     <?php else: ?>
     <li class="logo1">
-      <a href="<?= $BASE_URL ?>index.php"><img src="<?= $BASE_URL ?>img/teste-removebg-preview.png" alt="logo"/> <span>TESTE HGT</span></a>
+      <a href="<?= $BASE_URL ?>home"><img src="<?= $BASE_URL ?>img/teste-removebg-preview.png" alt="logo"/> <span>TESTE HGT</span></a>
     </li>
       <?php endif; ?>
 
@@ -128,14 +128,14 @@ $data = date("d/m/Y");
 ?>
     <li class="loginAuth">
       <span><?= ucwords(strtolower($usuarioData->nome)) ?></span>
-      <a href="<?= $BASE_URL ?>perfil.php"><div id="imagem1" style="background-image:url(<?= $BASE_URL ?>img/users/<?= $usuarioData->perfil ?>);">
+      <a href="<?= $BASE_URL ?>perfil"><div id="imagem1" style="background-image:url(<?= $BASE_URL ?>img/users/<?= $usuarioData->perfil ?>);">
   </div></a>
     </li>
     <?php else: ?>
        <li class="login">
-      <a href="<?= $BASE_URL ?>login.php">login</a>
+      <a href="<?= $BASE_URL ?>login">login</a>
       <span>/</span>
-      <a href="<?= $BASE_URL ?>cadastro.php">cadastro</a>
+      <a href="<?= $BASE_URL ?>cadastro">cadastro</a>
     </li>
  <?php endif; ?>
 

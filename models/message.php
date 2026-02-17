@@ -20,7 +20,7 @@ class Message {
   }
 
   //função para setar mansagem
-  public function setMessage($msg, $type, $redirect = "index.php"){
+  public function setMessage($msg, $type, $redirect = "home"){
     $_SESSION["msg"] = $msg;
     $_SESSION["type"] = $type;
 

@@ -18,7 +18,7 @@ if(!$usuario) {
 
 <div class="editar1">
 <h2>Definir Nova Senha</h2>
-<form action="novaSenha_process.php" method="POST">
+<form action="novaSenha_process" method="POST">
     <input type="hidden" name="token" value="<?= $token ?>">
     <input type="password" name="senha" placeholder="Digite sua nova senha..." required>
     <input type="password" name="senhaConf" placeholder="Digite sua nova senha novamente..." required> 

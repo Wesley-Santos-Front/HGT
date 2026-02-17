@@ -10,7 +10,7 @@ $usuarioData = $usuarioDao->verifyToken(true);
 
 <!--pagina editPassword-->
 <div class="editar1">
-<form action="<?= $BASE_URL ?>editPassword_process.php" method="post">
+<form action="<?= $BASE_URL ?>editPassword_process" method="post">
   <div>
   <h1>Alterar senha</h1>
   </div>

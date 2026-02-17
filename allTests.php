@@ -15,7 +15,7 @@ $usuarioData = $usuarioDao->verifyToken(true);
 <div class="tabela">
   <div class="title1">
   <h3>Todos os testes!</h3>
-  <p>Para realizar o download: <a href="<?= $BASE_URL ?>gerar_pdf.php">clique aqui</a></p>
+  <p>Para realizar o download: <a href="<?= $BASE_URL ?>gerar_pdf">clique aqui</a></p>
   </div>
   <table>
     <thead>

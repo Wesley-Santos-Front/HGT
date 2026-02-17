@@ -17,10 +17,10 @@ $passw1 = trim(filter_input(INPUT_POST, "senha1"));
 if($email1 && $passw1){
 
   if($usuarioDao->authenticateUser($email1, $passw1)){ 
-    $message->setMessage("Seja bem vindo", "success", "homeLogado.php");
+    $message->setMessage("Seja bem vindo", "success", "homeLogado");
 
   }else {
-    $message->setMessage("Usuário e/ou senha incorreto", "error", "login.php");
+    $message->setMessage("Usuário e/ou senha incorreto", "error", "login");
 
   }
 

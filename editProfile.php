@@ -13,7 +13,7 @@ if($usuarioData->perfil == ""){
 ?>
 
 <div class="editar">
-<form action="<?= $BASE_URL ?>edit_process.php" method="POST" enctype="multipart/form-data">
+<form action="<?= $BASE_URL ?>edit_process" method="POST" enctype="multipart/form-data">
   <div>
   <h1>Atualizar cadastro</h1>
   </div>
@@ -32,7 +32,7 @@ if($usuarioData->perfil == ""){
    <div class="hiperl1">
       <ul>
         <div>
-        <a href="<?= $BASE_URL ?>editPassword.php">Alterar Senha?</a>
+        <a href="<?= $BASE_URL ?>editPassword">Alterar Senha?</a>
         </div>
       </ul>
     </div>
